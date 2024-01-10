@@ -1,15 +1,15 @@
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-  <div class="flex h-fit lg:flex-row flex-col lg:gap-0 sm:gap-10 gap-4 w-full">
+  <div class="flex h-fit lg:flex-row flex-col lg:gap-0 sm:gap-0 gap-4 w-full">
     <div id="displayarea" class="bg-black lg:h-screen h-[60vh] sm:h-[80vh] flex relative overflow-hidden lg:w-1/2 w-full">
-      <div id="container" class="flex transition-all h-full w-full duration-200">
-        <img class="h-full object-cover" src="./six.webp"></img>
-        <img class="h-full object-cover" src="./one.webp"></img>
-        <img class="h-full object-cover" src="./two.webp"></img>
-        <img class="h-full object-cover" src="./three.webp"></img>
-        <img class="h-full object-cover" src="./four.webp"></img>
-        <img class="h-full object-cover" src="./five.webp"></img>
-        <img class="h-full object-cover" src="./six.webp"></img>
-        <img class="h-full object-cover" src="./one.webp"></img>
+      <div id="container" class="flex transition-all duration-200">
+          <img class=" aspect-video" src="./six.webp"></img>
+          <img class=" aspect-video" src="./one.webp"></img>
+          <img class=" aspect-video" src="./two.webp"></img>
+          <img class=" aspect-video" src="./three.webp"></img>
+          <img class=" aspect-video" src="./four.webp"></img>
+          <img class=" aspect-video" src="./five.webp"></img>
+          <img class=" aspect-video" src="./six.webp"></img>
+          <img class=" aspect-video" src="./one.webp"></img>
       </div>
       <div class="hidden absolute bottom-10 lg:flex gap-4 sm:flex-col left-5">
         <button id="control_1" class="border-solid border-white border-[2px] rounded-full overflow-hidden">
@@ -192,13 +192,13 @@ for (let i = 1; i < 7; i++) {
   const button = document.getElementById(`control_${i}`) as HTMLButtonElement;
   const mobileButton = document.getElementById(`mobile_control_${i}`) as HTMLButtonElement;
   button.addEventListener("click", () => {
-    current = (i - 1) * 100;
+    current = (i) * 100;
     container.style.transform = `translateX(-${current}%)`
   })
   mobileButton.addEventListener("click", () => {
-    const prevButton = document.getElementById(`mobile_control_${current >= 100 ? (current / 100) + 1 : current + 1}`) as HTMLButtonElement;
+    const prevButton = document.getElementById(`mobile_control_${current >= 100 ? (current / 100): current}`) as HTMLButtonElement;
     prevButton.style.backgroundColor = "black"
-    current = (i - 1) * 100;
+    current = (i) * 100;
     container.style.transform = `translateX(-${current}%)`
     mobileButton.style.backgroundColor = "white"
   })
