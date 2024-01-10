@@ -1,15 +1,15 @@
-document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
+(function(){const o=document.createElement("link").relList;if(o&&o.supports&&o.supports("modulepreload"))return;for(const r of document.querySelectorAll('link[rel="modulepreload"]'))n(r);new MutationObserver(r=>{for(const s of r)if(s.type==="childList")for(const m of s.addedNodes)m.tagName==="LINK"&&m.rel==="modulepreload"&&n(m)}).observe(document,{childList:!0,subtree:!0});function d(r){const s={};return r.integrity&&(s.integrity=r.integrity),r.referrerPolicy&&(s.referrerPolicy=r.referrerPolicy),r.crossOrigin==="use-credentials"?s.credentials="include":r.crossOrigin==="anonymous"?s.credentials="omit":s.credentials="same-origin",s}function n(r){if(r.ep)return;r.ep=!0;const s=d(r);fetch(r.href,s)}})();document.querySelector("#app").innerHTML=`
   <div class="flex h-fit lg:flex-row flex-col lg:gap-0 sm:gap-0 gap-4 w-full">
     <div id="displayarea" class="bg-black lg:h-screen h-[60vh] sm:h-[80vh] flex relative overflow-hidden lg:w-1/2 w-full">
       <div id="container" class="flex transition-all duration-200">
-          <img class="h-full aspect-video" src="./six.webp"></img>
-          <img class="h-full aspect-video" src="./one.webp"></img>
-          <img class="h-full aspect-video" src="./two.webp"></img>
-          <img class="h-full aspect-video" src="./three.webp"></img>
-          <img class="h-full aspect-video" src="./four.webp"></img>
-          <img class="h-full aspect-video" src="./five.webp"></img>
-          <img class="h-full aspect-video" src="./six.webp"></img>
-          <img class="h-full aspect-video" src="./one.webp"></img>
+          <img class=" aspect-video" src="./six.webp"></img>
+          <img class=" aspect-video" src="./one.webp"></img>
+          <img class=" aspect-video" src="./two.webp"></img>
+          <img class=" aspect-video" src="./three.webp"></img>
+          <img class=" aspect-video" src="./four.webp"></img>
+          <img class=" aspect-video" src="./five.webp"></img>
+          <img class=" aspect-video" src="./six.webp"></img>
+          <img class=" aspect-video" src="./one.webp"></img>
       </div>
       <div class="hidden absolute bottom-10 lg:flex gap-4 sm:flex-col left-5">
         <button id="control_1" class="border-solid border-white border-[2px] rounded-full overflow-hidden">
@@ -118,146 +118,20 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       </div>
     </div>
   </div>
-  `
-
-const dropdownRoot = document.getElementById("dropdownroot") as HTMLDivElement;
-new Array(dropdownRoot.children.length).fill(0).forEach((_element, index) => {
-  const button = dropdownRoot.children.item(index) as HTMLDivElement;
-  button.addEventListener("click", () => {
-    const currentHeight = dropdownRoot.style.height;
-    dropdownRoot.style.height = currentHeight === "135px" ? "45px" : "135px"
-  })
-})
-
-const descButton = document.getElementById("descreption") as HTMLElement;
-const harvestButton = document.getElementById("harvest") as HTMLElement;
-const usecasesButton = document.getElementById("usecases") as HTMLElement;
-const contentArea = document.getElementById("content") as HTMLDivElement;
-const setInfoStyle = (element: HTMLElement, select: boolean) => {
-  // bg-[#3C422E] text-[#F6E6D9]
-  if (select) {
-    element.style.color = "#F6E6D9";
-    element.style.backgroundColor = "#3C422E"
-    return;
-  }
-  element.style.color = "black";
-  element.style.backgroundColor = "transparent"
-}
-
-descButton.addEventListener("click", () => {
-  setInfoStyle(descButton, true);
-  setInfoStyle(harvestButton, false);
-  setInfoStyle(usecasesButton, false);
-
-  contentArea.innerHTML = `<p class="font-bold leading-[1.8]">DRIZZLE: 500ML</p>
+  `;const p=document.getElementById("dropdownroot");new Array(p.children.length).fill(0).forEach((t,o)=>{p.children.item(o).addEventListener("click",()=>{const n=p.style.height;p.style.height=n==="135px"?"45px":"135px"})});const c=document.getElementById("descreption"),b=document.getElementById("harvest"),u=document.getElementById("usecases"),x=document.getElementById("content"),i=(t,o)=>{if(o){t.style.color="#F6E6D9",t.style.backgroundColor="#3C422E";return}t.style.color="black",t.style.backgroundColor="transparent"};c.addEventListener("click",()=>{i(c,!0),i(b,!1),i(u,!1),x.innerHTML=`<p class="font-bold leading-[1.8]">DRIZZLE: 500ML</p>
   Extra Virgin finishing oil made from olives that are picked early, when flavor is bold and antioxidants are highest. Made for eating, never heating.
   <br />
   <br />
   <p class="font-bold leading-[1.8]">SIZZLE: 750ML</p>
-  Extra Virgin cooking oil made from mature, mid-season olives that yield a more mellow flavor. Use it every day, in every way.`
-})
-harvestButton.addEventListener("click", () => {
-  setInfoStyle(descButton, false);
-  setInfoStyle(harvestButton, true);
-  setInfoStyle(usecasesButton, false);
-
-  contentArea.innerHTML = `<p class="font-bold leading-[1.8]">DRIZZLE:</p>
+  Extra Virgin cooking oil made from mature, mid-season olives that yield a more mellow flavor. Use it every day, in every way.`});b.addEventListener("click",()=>{i(c,!1),i(b,!0),i(u,!1),x.innerHTML=`<p class="font-bold leading-[1.8]">DRIZZLE:</p>
   Harvested in October, before the olives have ripened fully. Picked by hand because young olives need a firm yank to loosen up.
   <br />
   <br />
   <p class="font-bold leading-[1.8]">SIZZLE:</p>
-  Harvested in November and December, when the olives are more mature. They’re pretty laid back by this point, so it only takes a few shakes to get them off the branch.`
-})
-usecasesButton.addEventListener("click", () => {
-  setInfoStyle(descButton, false);
-  setInfoStyle(harvestButton, false);
-  setInfoStyle(usecasesButton, true);
-
-  contentArea.innerHTML = `<p class="font-bold leading-[1.8]">DRIZZLE:</p>
+  Harvested in November and December, when the olives are more mature. They’re pretty laid back by this point, so it only takes a few shakes to get them off the branch.`});u.addEventListener("click",()=>{i(c,!1),i(b,!1),i(u,!0),x.innerHTML=`<p class="font-bold leading-[1.8]">DRIZZLE:</p>
   A little Drizzle goes a long way! Use it on and around things like ice cream, pesto, popcorn, salads, sandwiches or even directly on your tongue (we won’t tell).
   <br />
   <br />
   <p class="font-bold leading-[1.8]">SIZZLE:</p>
   If you would put it in or on top of an oven, use sizzle. Chicken Cutlets, Sheet Pan Veggies, Fried Rice, or even Chocolate Chip Cookies! You name it, Sizzle sizzles it.
-  `
-
-})
-
-descButton.click();
-
-const container = document.getElementById("container") as HTMLDivElement;
-
-let current = 100;
-for (let i = 1; i < 7; i++) {
-  const button = document.getElementById(`control_${i}`) as HTMLButtonElement;
-  const mobileButton = document.getElementById(`mobile_control_${i}`) as HTMLButtonElement;
-  button.addEventListener("click", () => {
-    current = (i) * 100;
-    container.style.transform = `translateX(-${current}%)`
-  })
-  mobileButton.addEventListener("click", () => {
-    const prevButton = document.getElementById(`mobile_control_${current >= 100 ? (current / 100): current}`) as HTMLButtonElement;
-    prevButton.style.backgroundColor = "black"
-    current = (i) * 100;
-    container.style.transform = `translateX(-${current}%)`
-    mobileButton.style.backgroundColor = "white"
-  })
-}
-
-const displayContext = document.getElementById("displayarea") as HTMLDivElement;
-let direction = 1;
-let initx: number, endx: number;
-
-var emptyImage = document.createElement('img');
-emptyImage.src = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==';
-container.addEventListener("dragstart", (event: any) => {
-  initx = event.clientX;
-  event?.dataTransfer.setDragImage(emptyImage, 0, 0);
-});
-container.addEventListener("dragend", (event) => {
-  endx = event.clientX;
-  container.style.transitionProperty = "all"
-  container.style.transitionDuration = "200ms"
-  if (initx > endx) {
-    direction = 1;
-  } else {
-    direction = -1;
-  }
-  current = current + direction * 100;
-  container.style.transform = `translateX(-${current}%)`
-  setTimeout(() => {
-    if (current === 0 || current === 700) {
-      container.style.transition = "none";
-      container.style.transform = `translateX(-${current === 700 ? 100 : 600}%)`
-      current = current === 700 ? 100 : 600;
-    }
-  }, 200)
-});
-
-container.addEventListener("touchstart", (event) => {
-  initx = event.touches[0].clientX;
-});
-
-container.addEventListener("touchend", (event) => {
-  endx = event.changedTouches[0].clientX;
-  container.style.transitionProperty = "all"
-  container.style.transitionDuration = "200ms"
-  if (initx > endx) {
-    direction = 1;
-  } else {
-    direction = -1;
-  }
-  const prevButton = document.getElementById(`mobile_control_${current >= 100 ? (current / 100) : current}`) as HTMLButtonElement;
-  prevButton.style.backgroundColor = "black"
-  current = current + direction * 100;
-  container.style.transform = `translateX(-${current}%)`
-  const mobileButton = document.getElementById(`mobile_control_${current == 700 ? 1 : current == 0 ? 6 : current / 100}`) as HTMLButtonElement;
-  mobileButton.style.backgroundColor = "white"
-  setTimeout(() => {
-    if (current === 0 || current === 700) {
-      container.style.transition = "none";
-      container.style.transform = `translateX(-${current === 700 ? 100 : 600}%)`
-      current = current === 700 ? 100 : 600;
-    }
-  }, 200)
-});
+  `});c.click();const l=document.getElementById("container");let e=100;for(let t=1;t<7;t++){const o=document.getElementById(`control_${t}`),d=document.getElementById(`mobile_control_${t}`);o.addEventListener("click",()=>{e=t*100,l.style.transform=`translateX(-${e}%)`}),d.addEventListener("click",()=>{const n=document.getElementById(`mobile_control_${e>=100?e/100:e}`);n.style.backgroundColor="black",e=t*100,l.style.transform=`translateX(-${e}%)`,d.style.backgroundColor="white"})}document.getElementById("displayarea");let a=1,g,f;var h=document.createElement("img");h.src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==";l.addEventListener("dragstart",t=>{g=t.clientX,t==null||t.dataTransfer.setDragImage(h,0,0)});l.addEventListener("dragend",t=>{f=t.clientX,l.style.transitionProperty="all",l.style.transitionDuration="200ms",g>f?a=1:a=-1,e=e+a*100,l.style.transform=`translateX(-${e}%)`,setTimeout(()=>{(e===0||e===700)&&(l.style.transition="none",l.style.transform=`translateX(-${e===700?100:600}%)`,e=e===700?100:600)},200)});l.addEventListener("touchstart",t=>{g=t.touches[0].clientX});l.addEventListener("touchend",t=>{f=t.changedTouches[0].clientX,l.style.transitionProperty="all",l.style.transitionDuration="200ms",g>f?a=1:a=-1;const o=document.getElementById(`mobile_control_${e>=100?e/100:e}`);o.style.backgroundColor="black",e=e+a*100,l.style.transform=`translateX(-${e}%)`;const d=document.getElementById(`mobile_control_${e==700?1:e==0?6:e/100}`);d.style.backgroundColor="white",setTimeout(()=>{(e===0||e===700)&&(l.style.transition="none",l.style.transform=`translateX(-${e===700?100:600}%)`,e=e===700?100:600)},200)});
